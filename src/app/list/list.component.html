@@ -1,0 +1,21 @@
+<select [(ngModel)]="selectedWorkspace">
+  <option value="All">Show All</option>
+
+  <option *ngFor="let item of availableWorkspaces" [value]="item">
+    {{ item }}
+  </option>
+</select>
+<h4>Currently in the room:</h4>
+<ol>
+  <li
+    *ngFor="
+      let item of personList | filter: selectedWorkspace:personList.length;
+      let i = index
+    "
+  >
+    {{ item.name }} - likes {{ item.workspace }}.
+    <button (click)="delete(i)">X</button>
+    <button (click)="edit(i)">Edit</button>
+  </li>
+</ol>
+<button (click)="clear()">Clear</button>
