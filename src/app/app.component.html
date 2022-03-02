@@ -1,35 +1,35 @@
-
-<p style="background-color: aqua;"> Task 1:</p>
-<h3> Who are you? </h3>
-<label for ="name">Name</label>
-<input [(ngModel)]="name" id="name"/>
-<br/>
-<label for ="familyName">Family Name</label>
-<input [(ngModel)]="familyName" id ="familyName"/>
-<br/> 
+<p style="background-color: aqua">Task 1:</p>
+<h3>Who are you?</h3>
+<label for="name">Name</label>
+<input [(ngModel)]="name" id="name" />
+<br />
+<label for="familyName">Family Name</label>
+<input [(ngModel)]="familyName" id="familyName" />
+<br />
 <button (click)="welcome()">Welcome</button>
-<button (click)="byebye()">Bye bye</button> 
-<p style="background-color: aqua;"> Task 2:</p> 
+<button (click)="byebye()">Bye bye</button>
+<p style="background-color: aqua">Task 2:</p>
 
-<h3> People in the room </h3>
-<p>Max number: {{maxPeople}}</p>
-<p [class]="colorClass">
-  Current number: {{currentPeople}}</p>
+<h3>People in the room</h3>
+<p>Max number: {{ maxPeople }}</p>
+<p [class]="colorClass">Current number: {{ currentPeople }}</p>
 
-  <p>Someone entered the room <button (click)="increasePeople()">+1</button></p>
+<p>Someone entered the room <button (click)="increasePeople()">+1</button></p>
 <p>Someone left the room <button (click)="decreasePeople()">-1</button></p>
-<p style="background-color: aqua;"> Task 3:</p>
+<p style="background-color: aqua">Task 3:</p>
 
-  <input [(ngModel)]="name3" (keydown.enter)="addPerson()"/>
-  <select [(ngModel)]="choosenWorkspace"><option *ngFor="let opt of workspaces"
-            [value]="opt">{{ opt }}</option>
-</select><button (click)="addPerson()">Add</button>
+<input [(ngModel)]="name3" (keydown.enter)="addPerson()" />
+<select [(ngModel)]="choosenWorkspace">
+  <option *ngFor="let opt of workspaces" [value]="opt">
+    {{ opt }}
+  </option></select
+><button (click)="addPerson()">Add</button>
 <h4>Currently in the room:</h4>
 <button (click)="clearPersonList()">Clear</button>
 <ol>
   <li *ngFor="let item of personList; let i = index">
-    {{ item.name }} - likes {{ item.workspace }}. 
-    <button (click)="removePersonAtIndex(i)"> X </button>
+    {{ item.name }} - likes {{ item.workspace }}.
+    <button (click)="removePersonAtIndex(i)">X</button>
     <button (click)="editPersonAtIndex(i)">Edit</button>
   </li>
 </ol>
