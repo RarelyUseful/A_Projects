@@ -14,18 +14,18 @@ class Person {
 })
 export class AppComponent {
   title = 'A_Projects';
-  //public name:string = '';
+  public name:string = '';
   public name3: string = '';
-  //public familyName:string = '';
+  public familyName:string = '';
 
-  // public welcome(){
-  //   alert('Welcome ' +this.name +" "+this.familyName);
-  // }
-  // public byebye(){
-  //   alert('Bye bye ' +this.name +" "+this.familyName);
-  //   this.name = '';
-  //   this.familyName = '';
-  // }
+  public welcome(){
+    alert('Welcome ' +this.name +" "+this.familyName);
+  }
+  public byebye(){
+    alert('Bye bye ' +this.name +" "+this.familyName);
+    this.name = '';
+    this.familyName = '';
+  }
   public maxPeople: number = 16;
   public currentPeople: number = 3;
 
