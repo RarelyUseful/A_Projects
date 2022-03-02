@@ -4,3 +4,10 @@
 .approved {
   color: rgb(109, 182, 0);
 }
+
+.ng-touched.ng-invalid {
+  border: 2px solid red;
+}
+.ng-untouched.ng-invalid {
+  border: 2px solid red;
+}

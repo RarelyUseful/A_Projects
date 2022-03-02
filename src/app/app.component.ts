@@ -27,7 +27,7 @@ export class AppComponent {
     'Polish',
     'French',
     'Pirate',
-    `Dog. Because i'm blind and my dig will read this for me.`,
+    `Bark. Because i'm blind and my dog will read this to me.`,
   ];
   _userBase: Array<UserInfo> = [];
   public submit(

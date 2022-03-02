@@ -19,7 +19,7 @@
   <div *ngIf="name.valid" class="approved">Awesome name :)</div>
   <br />
   <input
-    pattern="(^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$)"
+    pattern="(^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$)"
     required
     minlength="6"
     [(ngModel)]="useremail"
@@ -39,7 +39,7 @@
   <div>
     Transate: <input [(ngModel)]="translating" type="checkbox" />
     <div *ngIf="translating"></div>
-    <select *ngIf="translating" [(ngModel)]="language">
+    <select *ngIf="translating" [(ngModel)]="language" required #lang="ngModel">
       <option *ngFor="let opt of languages" [value]="opt">{{ opt }}</option>
     </select>
 
