@@ -1,0 +1,69 @@
+<div>
+  <h3>Newsletter sign up:</h3>
+
+  <input
+    required
+    minlength="3"
+    maxlength="30"
+    [(ngModel)]="username"
+    placeholder="Name"
+    #name="ngModel"
+    ng-disabled="disable"
+  />
+  <div *ngIf="name.invalid" class="alert">
+    <div *ngIf="name.errors?.['required']">Name is required.</div>
+    <div *ngIf="name.errors?.['minlength']">
+      Name must be at least 3 characters long.
+    </div>
+  </div>
+  <div *ngIf="name.valid" class="approved">Awesome name :)</div>
+  <br />
+  <input
+    pattern="(^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$)"
+    required
+    minlength="6"
+    [(ngModel)]="useremail"
+    placeholder="Email"
+    #email="ngModel"
+  />
+  <div *ngIf="email.invalid" class="alert">
+    <div *ngIf="email.errors?.['required']">Email is required.</div>
+    <div *ngIf="email.errors?.['minlength']">
+      Email must be at least 6 characters long.
+    </div>
+    <div *ngIf="email.errors?.['pattern']">Email has wrong pattern.</div>
+  </div>
+  <div *ngIf="email.valid" class="approved">Looks good enough.</div>
+  <br />
+  <p></p>
+  <div>
+    Transate: <input [(ngModel)]="translating" type="checkbox" />
+    <div *ngIf="translating"></div>
+    <select *ngIf="translating" [(ngModel)]="language">
+      <option *ngFor="let opt of languages" [value]="opt">{{ opt }}</option>
+    </select>
+
+    <p></p>
+
+    <button
+      (click)="submit(username, useremail, translating, language)"
+      (window:keydown.Enter)="
+        name.valid &&
+          email.valid &&
+          submit(username, useremail, translating, language)
+      "
+      [disabled]="
+        !name.valid || !email.valid || (translating && language == '')
+      "
+    >
+      Subscribe
+    </button>
+  </div>
+  <p></p>
+  Test Userbase:
+  <ul>
+    <p *ngFor="let x of _userBase">
+      {{ x.name }} {{ x.email }} {{ x.language }}
+    </p>
+  </ul>
+</div>
